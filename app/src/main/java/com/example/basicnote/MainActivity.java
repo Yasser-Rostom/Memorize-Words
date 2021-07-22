@@ -23,6 +23,8 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import org.jetbrains.annotations.NotNull;
 
 public class MainActivity extends AppCompatActivity {
+
+    RecyclerView recyclerView;
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
@@ -51,11 +53,12 @@ public class MainActivity extends AppCompatActivity {
     private ViewModel mWordViewModel;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        RecyclerView recyclerView = findViewById(R.id.recyclerview);
+         recyclerView = findViewById(R.id.recyclerview);
 
         //  final WordListAdapter adapter = new WordListAdapter(new WordListAdapter.WordDiff(), this);
         final WordListAdapter adapter = new WordListAdapter();

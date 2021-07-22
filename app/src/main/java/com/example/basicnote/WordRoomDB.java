@@ -17,6 +17,7 @@ import java.util.concurrent.Executors;
         exportSchema = false)
 public abstract class WordRoomDB extends RoomDatabase {
   public abstract WordDAO wordDao();
+  public abstract CategoryDAO categoryDAO();
 
     private static volatile WordRoomDB INSTANCE;
   private static final int THREADS_NO = 4;
@@ -48,6 +49,7 @@ public abstract class WordRoomDB extends RoomDatabase {
                 // Populate the database in the background.
                 // If you want to start with more words, just add them.
                 WordDAO dao = INSTANCE.wordDao();
+
           //   dao.deleteAll();
 
           /*      Word word = new Word("Hello");

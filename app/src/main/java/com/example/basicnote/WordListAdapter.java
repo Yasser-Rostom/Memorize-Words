@@ -66,7 +66,7 @@ public class WordListAdapter extends RecyclerView.Adapter <WordListAdapter.WordV
 
     }
 
-    public  class WordViewHolder extends RecyclerView.ViewHolder {
+    public class WordViewHolder extends RecyclerView.ViewHolder {
         private final TextView wordItemView;
 
         private final TextView wordItemMeaning;
@@ -91,6 +91,7 @@ public class WordListAdapter extends RecyclerView.Adapter <WordListAdapter.WordV
     public interface setOnClickListener
     {
         void onClick(Word word);
+        //to be added for selection
         void onLongClick(Word word);
     }
     public void setOnItemClickListener (setOnClickListener listener)
