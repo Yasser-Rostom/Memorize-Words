@@ -3,17 +3,14 @@ package com.example.basicnote;
 import android.app.Application;
 
 import androidx.lifecycle.AndroidViewModel;
-import androidx.lifecycle.LiveData;
-
-import java.util.List;
 
 public class NewWordModel extends AndroidViewModel {
-    private WordRepository mRepository;
+    private Repository mRepository;
 
 
     public NewWordModel (Application application) {
         super(application);
-        mRepository = new WordRepository(application);
+        mRepository = new Repository(application);
     }
     public void insert(Word word) { mRepository.insert(word); }
 

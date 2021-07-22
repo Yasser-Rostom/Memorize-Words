@@ -12,12 +12,12 @@ import java.util.List;
 
 public class CateViewModel extends AndroidViewModel {
 
-    private WordRepository repository;
+    private Repository repository;
     private final LiveData<List<Category>> allCategories;
 
     public CateViewModel(@NonNull @NotNull Application application) {
         super(application);
-        repository = new WordRepository(application);
+        repository = new Repository(application);
         allCategories = repository.getAllCategory();
     }
 
