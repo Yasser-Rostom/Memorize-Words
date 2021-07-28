@@ -18,16 +18,21 @@ public interface WordDAO {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     void insert(Word word);
 
-    @Query("DELETE FROM word_Table")
-    void deleteAll();
+    @Query("DELETE FROM word_Table where category_name = :category")
+    void deleteAll(String category);
 
     @Update
     void update(Word word);
 
+    @Update
+    void updateCategory(Category category);
+
     @Delete
     void deleteWord(Word theWord);
 
-    @Query("Select * from word_Table ORDER BY word ASC")
+    @Query("Select * from word_Table ORDER BY id ASC")
     LiveData<List<Word>> getOrderedWords();
 
+    @Query("Select * from word_Table where category_name = :category ORDER BY id")
+    LiveData<List<Word>> getWords(String category);
 }

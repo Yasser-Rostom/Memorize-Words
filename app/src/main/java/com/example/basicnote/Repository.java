@@ -9,7 +9,7 @@ import java.util.List;
 public class Repository {
     private WordDAO mWordDao;
     private LiveData<List<Word>> mAllWords;
-
+    private LiveData<List<Word>> someWords;
     private CategoryDAO mCategoryDao;
     private LiveData<List<Category>> allCategory;
 
@@ -19,6 +19,7 @@ public class Repository {
 
         mWordDao = db.wordDao();
         mAllWords = mWordDao.getOrderedWords();
+
 
         mCategoryDao = db.categoryDAO();
         allCategory = mCategoryDao.getCategory();
@@ -30,6 +31,12 @@ public class Repository {
         return mAllWords;
     }
     LiveData<List<Category>> getAllCategory() {return allCategory;}
+    LiveData<List<Word>> getWordsByCategory(String category) {
+        someWords = mWordDao.getWords(category);
+        return someWords;
+    }
+
+
     void update(Word word)
     {
         WordRoomDB.dbWriteExecutor.execute(() -> {
@@ -54,9 +61,9 @@ public class Repository {
             mCategoryDao.delete(category);
         });
     }
-    void deleteAllWords ()
+    void deleteAllWords (String category)
     {
-        mWordDao.deleteAll();
+        mWordDao.deleteAll(category);
     }
     void deleteAllCategories ()
     {
@@ -70,6 +77,11 @@ public class Repository {
             mWordDao.insert(word);
         });
     }
+  /*  void listWords(String word) {
+        WordRoomDB.dbWriteExecutor.execute(() -> {
+            mWordDao.getWords(word);
+        });
+    }*/
     void insertCategory(Category category) {
         WordRoomDB.dbWriteExecutor.execute(() -> {
             mCategoryDao.insert(category);

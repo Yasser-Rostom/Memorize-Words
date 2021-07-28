@@ -75,15 +75,12 @@ public class WordListAdapter extends RecyclerView.Adapter <WordListAdapter.WordV
 
             wordItemView = (TextView) itemView.findViewById(R.id.textView1);
             wordItemMeaning = (TextView) itemView.findViewById(R.id.textView2);
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if(mlistener != null)
-                    {
-                        mlistener.onClick(wordList.get(getAdapterPosition()));
-                    }
-
+            itemView.setOnClickListener(v -> {
+                if(mlistener != null)
+                {
+                    mlistener.onClick(wordList.get(getAdapterPosition()));
                 }
+
             });
         }
     }

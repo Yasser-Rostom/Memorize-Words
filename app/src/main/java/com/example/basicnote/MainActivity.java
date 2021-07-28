@@ -25,11 +25,12 @@ import org.jetbrains.annotations.NotNull;
 public class MainActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
+    String categoryName;
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_delete:
-                mWordViewModel.deleteAllWords();
+                mWordViewModel.deleteAllWords(categoryName);
                 return true;
 
             case R.id.action_export:
@@ -69,8 +70,16 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
 
         mWordViewModel = new ViewModelProvider(this).get(ViewModel.class);
+        Intent catIntent = getIntent();
+         categoryName = catIntent.getStringExtra("category");
+        if(categoryName != null)  setTitle(categoryName);
 
-        mWordViewModel.getAllWords().observe(this, words -> {
+        Toast.makeText(this, categoryName, Toast.LENGTH_SHORT).show();
+
+
+        mWordViewModel.getSpecificWords(categoryName).
+                observe(this, words -> {
+
             // Update the cached copy of the words in the adapter.
             adapter.setWordList(words);
             adapter.setOnItemClickListener(new WordListAdapter.setOnClickListener() {
@@ -78,8 +87,10 @@ public class MainActivity extends AppCompatActivity {
                 public void onClick(Word word) {
                     Intent i = new Intent(MainActivity.this,
                             NewWordActivity.class);
+
                     i.putExtra("id", word.getId());
                     i.putExtra("word", word.getWord());
+                    i.putExtra("category", categoryName);
                     i.putExtra("translation", word.getTranslation());
                     recyclerView.scheduleLayoutAnimation();
                     startActivity(i);
@@ -96,6 +107,7 @@ public class MainActivity extends AppCompatActivity {
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(view -> {
             Intent intent = new Intent(MainActivity.this, NewWordActivity.class);
+            intent.putExtra("categoryFab", categoryName);
             startActivity(intent);
         });
 

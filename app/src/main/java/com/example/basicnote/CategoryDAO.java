@@ -24,6 +24,6 @@ public interface CategoryDAO {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     void insert(Category category);
 
-    @Query("Select * from category_Table ORDER BY category ASC")
+    @Query("Select * from category_Table ORDER BY id ASC")
     LiveData<List<Category>> getCategory();
 }

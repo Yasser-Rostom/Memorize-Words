@@ -21,11 +21,15 @@ public class CateViewModel extends AndroidViewModel {
         allCategories = repository.getAllCategory();
     }
 
-    public  void deleteWord
+    public  void deleteCategory
             (Category category) {repository.deleteCategory(category);}
 
+            public void insertCat(Category category)
+            {
+                repository.insertCategory(category);
+            }
 
-    public void deleteAllWords()
+    public void deleteAllCategories()
     {repository.deleteAllCategories();
     }
     LiveData<List<Category>> getAllCategories()

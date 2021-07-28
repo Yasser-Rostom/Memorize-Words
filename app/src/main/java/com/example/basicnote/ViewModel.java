@@ -10,20 +10,26 @@ import java.util.List;
 public class ViewModel extends AndroidViewModel {
     private Repository mRepository;
 
-    private final LiveData<List<Word>> mAllWords;
-
+   // private final LiveData<List<Word>> mAllWords;
     public ViewModel (Application application) {
         super(application);
         mRepository = new Repository(application);
-        mAllWords = mRepository.getAllWords();
+       // mAllWords = mRepository.getAllWords();
+
     }
 
     public  void deleteWord (Word word) {mRepository.deleteWord(word);}
 
 
-    public void deleteAllWords() {mRepository.deleteAllWords();
+    public void deleteAllWords(String category) {mRepository.deleteAllWords(category);
     }
-    LiveData<List<Word>> getAllWords() { return mAllWords; }
+   // LiveData<List<Word>> getAllWords() { return mAllWords; }
+
+    LiveData<List<Word>> getSpecificWords(String category) {
+       final LiveData<List<Word>> someWords = mRepository.getWordsByCategory(category);
+        return someWords;
+
+    }
 
 
 
