@@ -41,7 +41,14 @@ public class NewWordActivity extends AppCompatActivity {
             else {
                 String word = mEditWordView.getText().toString();
                 String meaning = mEditMeaningView.getText().toString();
-                String category = i.getStringExtra("categoryFab");
+                String category;
+                if (i.getStringExtra("categoryFab") != null)
+                {
+                     category = i.getStringExtra("categoryFab");
+                }
+                else {
+                    category = i.getStringExtra("category");
+                }
 
                 Log.d("NewWord","cat " +category);
                 Word theWord = new Word(word,meaning,category);

@@ -1,7 +1,6 @@
 package com.example.basicnote;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.ItemTouchHelper;
@@ -9,20 +8,17 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
-import android.graphics.Paint;
 import android.graphics.pdf.PdfDocument;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.jetbrains.annotations.NotNull;
 
-public class MainActivity extends AppCompatActivity {
+public class WordListing extends AppCompatActivity {
 
     RecyclerView recyclerView;
     String categoryName;
@@ -58,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.word_listing);
          recyclerView = findViewById(R.id.recyclerview);
 
         //  final WordListAdapter adapter = new WordListAdapter(new WordListAdapter.WordDiff(), this);
@@ -74,18 +70,19 @@ public class MainActivity extends AppCompatActivity {
          categoryName = catIntent.getStringExtra("category");
         if(categoryName != null)  setTitle(categoryName);
 
-        Toast.makeText(this, categoryName, Toast.LENGTH_SHORT).show();
 
 
         mWordViewModel.getSpecificWords(categoryName).
                 observe(this, words -> {
+            // ToDo add a search bar when data available
+
 
             // Update the cached copy of the words in the adapter.
             adapter.setWordList(words);
             adapter.setOnItemClickListener(new WordListAdapter.setOnClickListener() {
                 @Override
                 public void onClick(Word word) {
-                    Intent i = new Intent(MainActivity.this,
+                    Intent i = new Intent(WordListing.this,
                             NewWordActivity.class);
 
                     i.putExtra("id", word.getId());
@@ -106,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
         });
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(view -> {
-            Intent intent = new Intent(MainActivity.this, NewWordActivity.class);
+            Intent intent = new Intent(WordListing.this, NewWordActivity.class);
             intent.putExtra("categoryFab", categoryName);
             startActivity(intent);
         });

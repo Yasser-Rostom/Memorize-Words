@@ -2,24 +2,18 @@ package com.example.basicnote;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProviders;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
 public class CategoryListing extends AppCompatActivity {
 
@@ -46,7 +40,7 @@ public class CategoryListing extends AppCompatActivity {
                 public void onClick(Category category) {
 
                     Intent intent = new Intent(CategoryListing.this,
-                            MainActivity.class);
+                            WordListing.class);
                     intent.putExtra("category",category.getCategory());
                     startActivity(intent);
 
@@ -54,6 +48,7 @@ public class CategoryListing extends AppCompatActivity {
 
                 @Override
                 public void onLongClick(Category category) {
+
 
 
                 }
@@ -73,7 +68,7 @@ public class CategoryListing extends AppCompatActivity {
             alertDialogBuilderUserInput
                     .setCancelable(false)
                     .setPositiveButton("Save", (dialogBox, id) -> {
-                        // ToDo get user input here
+
                         m_Text = userInputDialogEditText.getText().toString().trim();
                         if (m_Text.isEmpty()){
                             Toast.makeText(this, "No new category was saved", Toast.LENGTH_SHORT).show();

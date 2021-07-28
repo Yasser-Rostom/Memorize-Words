@@ -35,4 +35,7 @@ public interface WordDAO {
 
     @Query("Select * from word_Table where category_name = :category ORDER BY id")
     LiveData<List<Word>> getWords(String category);
+
+    @Query("SELECT * FROM word_Table WHERE word LIKE :search OR translation LIKE :search")
+    public List<Word> getSearchedNote(String search);
 }
