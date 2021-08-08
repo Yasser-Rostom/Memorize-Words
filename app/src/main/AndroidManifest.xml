@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BasicNote">
-        <activity android:name=".WordListing"></activity>
+        <activity android:name=".Viewer"></activity>
+        <activity android:name=".WordListing" />
         <activity android:name=".NewWordActivity" />
         <activity android:name=".CategoryListing">
             <intent-filter>

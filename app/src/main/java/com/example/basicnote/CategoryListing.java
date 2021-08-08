@@ -49,6 +49,10 @@ public class CategoryListing extends AppCompatActivity {
                 @Override
                 public void onLongClick(Category category) {
 
+                    Intent intent = new Intent();
+                    intent.putExtra("catID", category.getId());
+                    intent.putExtra("catName",category.getCategory());
+
 
 
                 }

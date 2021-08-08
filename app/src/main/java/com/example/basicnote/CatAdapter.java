@@ -1,5 +1,6 @@
 package com.example.basicnote;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -61,6 +62,7 @@ public class CatAdapter extends RecyclerView.Adapter <CatAdapter.CatViewHolder> 
                         getAdapterPosition()!= RecyclerView.NO_POSITION)
                 {
                     mlistener.onClick(categoryList.get(getAdapterPosition()));
+                    Log.d("onclick","category adapter");
                 }
 
             });

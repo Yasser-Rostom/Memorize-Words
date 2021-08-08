@@ -19,8 +19,8 @@ public class NewWordActivity extends AppCompatActivity {
     public static final String EXTRA_REPLY1 = "com.example.android.basicnote.REPLY1";
     public boolean checkEdit;
     private EditText mEditWordView, mEditMeaningView;
-  private NewWordModel viewModel;
-    //var to check if true, to update, if false, we insert a new word
+    private NewWordModel viewModel;
+    //variable to check if true, to update, if false, we insert a new word
    // private int mID;
 
     @Override

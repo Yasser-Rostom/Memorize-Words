@@ -2,6 +2,7 @@ package com.example.basicnote;
 
 import android.content.Context;
 import android.os.Build;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -65,6 +66,10 @@ public class WordListAdapter extends RecyclerView.Adapter <WordListAdapter.WordV
          return 0;
 
     }
+    public List<Word> getAllWords()
+    {
+       return wordList;
+    }
 
     public class WordViewHolder extends RecyclerView.ViewHolder {
         private final TextView wordItemView;
@@ -78,6 +83,7 @@ public class WordListAdapter extends RecyclerView.Adapter <WordListAdapter.WordV
             itemView.setOnClickListener(v -> {
                 if(mlistener != null)
                 {
+                    Log.d("onclick","word adapter click event");
                     mlistener.onClick(wordList.get(getAdapterPosition()));
                 }
 
@@ -94,6 +100,7 @@ public class WordListAdapter extends RecyclerView.Adapter <WordListAdapter.WordV
     public void setOnItemClickListener (setOnClickListener listener)
     {
         this.mlistener = listener;
+        Log.d("onClick","word adapter listener method");
     }
     public Word getWord(int position)
     {
