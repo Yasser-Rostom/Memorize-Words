@@ -1,10 +1,14 @@
 package com.example.basicnote;
 
 import android.util.Log;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -15,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.zip.Inflater;
 
-public class CatAdapter extends RecyclerView.Adapter <CatAdapter.CatViewHolder> {
+public class CatAdapter extends RecyclerView.Adapter <CatAdapter.CatViewHolder>{
     setOnClickListener mlistener;
     List<Category> categoryList;
     @NonNull
@@ -52,30 +56,49 @@ public class CatAdapter extends RecyclerView.Adapter <CatAdapter.CatViewHolder> 
 
         notifyDataSetChanged();
     }
-    public  class CatViewHolder extends RecyclerView.ViewHolder {
+
+
+    public  class CatViewHolder extends RecyclerView.ViewHolder implements View.OnCreateContextMenuListener{
         private final TextView catName;
+        private final LinearLayout linearLayout;
+
         public CatViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);
             catName = itemView.findViewById(R.id.textView1);
+            linearLayout = itemView.findViewById(R.id.linearRecycler);
             itemView.setOnClickListener(v -> {
-                if(mlistener != null &
-                        getAdapterPosition()!= RecyclerView.NO_POSITION)
-                {
+                if (mlistener != null &
+                        getAdapterPosition() != RecyclerView.NO_POSITION) {
                     mlistener.onClick(categoryList.get(getAdapterPosition()));
-                    Log.d("onclick","category adapter");
+                    Log.d("onclick", "category adapter");
                 }
 
             });
-            itemView.setOnLongClickListener(v ->
-            {
-                if(mlistener != null &
-                        getAdapterPosition()!= RecyclerView.NO_POSITION)
-                {
-                    mlistener.onLongClick(categoryList.get(getAdapterPosition()));
-                }
-                return true;
-            });
+            linearLayout.setOnCreateContextMenuListener(this);
+
+
+
+
         }
+
+
+        @Override
+        public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+            menu.add(getAdapterPosition(),0,0,"Update");
+            menu.add(getAdapterPosition(),1,0,"Delete");
+        }
+
+
+
+
+
+    }
+
+
+
+    public List<Category> getAllCats()
+    {
+        return categoryList;
     }
 
     public interface setOnClickListener
@@ -93,5 +116,6 @@ public class CatAdapter extends RecyclerView.Adapter <CatAdapter.CatViewHolder> 
     {
         return categoryList.get(position);
     }
+
     }
 

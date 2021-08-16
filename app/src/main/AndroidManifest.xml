@@ -3,7 +3,9 @@
     package="com.example.basicnote">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
 
     <application
         android:allowBackup="true"
@@ -12,9 +14,26 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BasicNote">
-        <activity android:name=".Viewer"></activity>
-        <activity android:name=".WordListing" />
-        <activity android:name=".NewWordActivity" />
+        <activity android:name=".Viewer"
+            android:parentActivityName=".WordListing">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".WordListing" />
+       </activity>
+
+        <activity android:name=".WordListing"
+            android:parentActivityName=".CategoryListing">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".CategoryListing"/></activity>
+
+        <activity android:name=".NewWordActivity"
+            android:parentActivityName=".WordListing">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".WordListing"/>
+
+        </activity>
         <activity android:name=".CategoryListing">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

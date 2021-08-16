@@ -6,6 +6,7 @@
     android:layout_margin="5dp"
     android:layout_centerHorizontal="true"
     android:elevation="@dimen/small_padding"
+    android:id="@+id/linearRecycler"
     android:layout_height="wrap_content"
     android:background="@drawable/rounded_corners"
     >

@@ -13,7 +13,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 @Database(entities = {Word.class, Category.class},
-        version = 6,
+        version = 7,
         exportSchema = false)
 public abstract class WordRoomDB extends RoomDatabase {
   public abstract WordDAO wordDao();

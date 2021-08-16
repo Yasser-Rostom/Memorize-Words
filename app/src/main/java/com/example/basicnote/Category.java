@@ -5,9 +5,11 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
+import androidx.room.Update;
 
 @Entity(tableName = "category_Table",
-        indices = {@Index(value = "category", unique= true)})
+        indices = {@Index(value = "category", unique= true)}
+        )
 public class Category {
 
     @PrimaryKey(autoGenerate = true)

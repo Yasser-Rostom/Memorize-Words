@@ -18,7 +18,7 @@ public interface CategoryDAO {
     @Query("DELETE FROM category_Table")
     void deleteAll();
 
-    @Update
+    @Update()
     void update(Category category);
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)

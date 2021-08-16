@@ -25,7 +25,7 @@ import java.util.List;
 
 public class WordListAdapter extends RecyclerView.Adapter <WordListAdapter.WordViewHolder> {
     setOnClickListener mlistener;
- List<Word> wordList;
+    List<Word> wordList;
     @NonNull
     @NotNull
     @Override
@@ -80,6 +80,7 @@ public class WordListAdapter extends RecyclerView.Adapter <WordListAdapter.WordV
 
             wordItemView = (TextView) itemView.findViewById(R.id.textView1);
             wordItemMeaning = (TextView) itemView.findViewById(R.id.textView2);
+
             itemView.setOnClickListener(v -> {
                 if(mlistener != null)
                 {

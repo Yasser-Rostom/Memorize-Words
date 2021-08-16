@@ -3,6 +3,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30dp"
+        android:layout_marginTop="@dimen/big_padding"
+        android:layout_marginLeft="@dimen/big_padding"
+
+        android:text="Term:"/>
     <EditText
         android:id="@+id/edit_word"
         android:layout_width="match_parent"
@@ -13,6 +21,13 @@
         android:inputType="textAutoComplete"
         android:layout_margin="@dimen/big_padding"
         android:textSize="18sp" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30dp"
+        android:layout_marginLeft="@dimen/big_padding"
+
+        android:text="Meaning:"/>
     <EditText
         android:id="@+id/edit_word2"
         android:layout_width="match_parent"

@@ -49,6 +49,12 @@ public class Repository {
             mCategoryDao.update(category);
         });
     }
+    void updateByCategory(String oldCategory, String newCategory)
+    {
+        WordRoomDB.dbWriteExecutor.execute(() -> {
+            mWordDao.updateByCategory(oldCategory,newCategory);
+        });
+    }
     void deleteWord(Word word)
     {
         WordRoomDB.dbWriteExecutor.execute(() -> {

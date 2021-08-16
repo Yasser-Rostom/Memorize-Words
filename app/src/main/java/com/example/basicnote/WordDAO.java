@@ -24,8 +24,9 @@ public interface WordDAO {
     @Update
     void update(Word word);
 
-    @Update
-    void updateCategory(Category category);
+    @Query("UPDATE word_Table set category_name = :newCategory " +
+            "where category_name = :oldCategory")
+    void updateByCategory(String oldCategory, String newCategory);
 
     @Delete
     void deleteWord(Word theWord);
@@ -37,5 +38,5 @@ public interface WordDAO {
     LiveData<List<Word>> getWords(String category);
 
     @Query("SELECT * FROM word_Table WHERE word LIKE :search OR translation LIKE :search")
-    public List<Word> getSearchedNote(String search);
+    List<Word> getSearchedNote(String search);
 }

@@ -24,11 +24,15 @@ public class CateViewModel extends AndroidViewModel {
     public  void deleteCategory
             (Category category) {repository.deleteCategory(category);}
 
-            public void insertCat(Category category)
+    public void insertCat(Category category)
             {
                 repository.insertCategory(category);
             }
-
+    public void update(Category category) { repository.updateCategory(category); }
+    public void updateWordsByCategory (String old, String newCategory)
+    {
+        repository.updateByCategory(old,newCategory);
+    }
     public void deleteAllCategories()
     {repository.deleteAllCategories();
     }

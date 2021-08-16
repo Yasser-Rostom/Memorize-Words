@@ -15,7 +15,8 @@ import static androidx.room.ForeignKey.NO_ACTION;
 @ForeignKey(entity = Category.class,
         parentColumns = "category",
         childColumns = "category_name",
-        onDelete = NO_ACTION
+        onDelete = NO_ACTION,
+        onUpdate = ForeignKey.CASCADE
         ), indices = {@Index("category_name")})
 
 public class Word {
