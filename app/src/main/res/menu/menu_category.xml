@@ -1,0 +1,13 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.memorizewords.WordListing">
+
+    <item
+        android:id="@+id/about"
+        android:orderInCategory="100"
+        android:icon="@drawable/ic_baseline_info_24"
+
+        android:title="About Us"
+        app:showAsAction="ifRoom" />
+</menu>

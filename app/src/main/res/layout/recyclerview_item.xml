@@ -4,17 +4,18 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="5dp"
-    android:elevation="@dimen/small_padding"
-    android:padding="5dp"
+    android:elevation="5dp"
 
-    android:background="@drawable/rounded_corners" >
+
+
+    android:background="@drawable/rounded_corners"
+    >
 
     <TextView
         android:id="@+id/textView1"
         android:textSize="26dp"
         android:textStyle="bold"
-
-        android:maxLines="1"
+        android:padding="5dp"
         android:layout_margin="3dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -22,7 +23,7 @@
     <TextView
         android:id="@+id/textView2"
         android:textSize="18dp"
-        android:textStyle="italic"
+        android:padding="10dp"
         android:layout_margin="3dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

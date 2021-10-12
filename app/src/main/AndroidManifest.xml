@@ -1,46 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.basicnote">
+    package="com.example.memorizewords"
+    >
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-
-
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission
+        android:name="android.permission.MANAGE_EXTERNAL_STORAGE"
+        android:minSdkVersion="26" />
     <application
         android:allowBackup="true"
+        android:requestLegacyExternalStorage="true"
+
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BasicNote">
-        <activity android:name=".Viewer"
-            android:parentActivityName=".WordListing">
-        <meta-data
-            android:name="android.support.PARENT_ACTIVITY"
-            android:value=".WordListing" />
-       </activity>
-
-        <activity android:name=".WordListing"
-            android:parentActivityName=".CategoryListing">
-        <meta-data
-            android:name="android.support.PARENT_ACTIVITY"
-            android:value=".CategoryListing"/></activity>
-
-        <activity android:name=".NewWordActivity"
-            android:parentActivityName=".WordListing">
-        <meta-data
-            android:name="android.support.PARENT_ACTIVITY"
-            android:value=".WordListing"/>
-
+        <activity android:name="com.example.memorizewords.About"></activity>
+        <activity
+            android:name="com.example.memorizewords.Viewer"
+            android:parentActivityName="com.example.memorizewords.WordListing">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.memorizewords.WordListing" />
         </activity>
-        <activity android:name=".CategoryListing">
+        <activity
+            android:name="com.example.memorizewords.WordListing"
+            android:parentActivityName="com.example.memorizewords.CategoryListing">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.memorizewords.CategoryListing" />
+        </activity>
+        <activity
+            android:name="com.example.memorizewords.NewWordActivity"
+            android:parentActivityName="com.example.memorizewords.WordListing">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.memorizewords.WordListing" />
+        </activity>
+        <activity
+            android:name="com.example.memorizewords.Splash"
+            android:theme="@style/SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.example.memorizewords.CategoryListing"
+            android:theme="@style/Theme.BasicNote" />
     </application>
 
 </manifest>

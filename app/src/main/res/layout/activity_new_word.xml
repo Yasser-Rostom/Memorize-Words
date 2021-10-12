@@ -1,51 +1,103 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+
+        android:background="@drawable/rounded_corners_bg">
+
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Term"
+
+            android:layout_margin="@dimen/big_padding"
+
+            android:layout_below="@+id/edit_word"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:id="@+id/edit_word"
+
+                android:layout_height="wrap_content"
+                android:minHeight="@dimen/small_padding"
+                android:fontFamily="sans-serif-light"
+
+                android:inputType="textMultiLine"
+                android:textSize="18sp"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Translation"
+            android:layout_margin="@dimen/big_padding"
+
+            android:layout_below="@+id/edit_word"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:id="@+id/edit_word2"
+
+                android:layout_height="wrap_content"
+                android:minHeight="@dimen/small_padding"
+                android:fontFamily="sans-serif-light"
+
+                android:inputType="textMultiLine"
+                android:textSize="18sp"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:orientation="horizontal">
     <TextView
+        android:layout_margin="@dimen/big_padding"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="30dp"
-        android:layout_marginTop="@dimen/big_padding"
-        android:layout_marginLeft="@dimen/big_padding"
 
-        android:text="Term:"/>
-    <EditText
-        android:id="@+id/edit_word"
-        android:layout_width="match_parent"
+        android:text="Choose Category:"/>
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_marginLeft="20dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:minHeight="@dimen/small_padding"
-        android:fontFamily="sans-serif-light"
-        android:hint="@string/hint_word"
-        android:inputType="textAutoComplete"
-        android:layout_margin="@dimen/big_padding"
-        android:textSize="18sp" />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="30dp"
-        android:layout_marginLeft="@dimen/big_padding"
-
-        android:text="Meaning:"/>
-    <EditText
-        android:id="@+id/edit_word2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:minHeight="@dimen/small_padding"
-        android:fontFamily="sans-serif-light"
-        android:hint="Translation"
-        android:inputType="textAutoComplete"
-        android:layout_below="@+id/edit_word"
-        android:layout_margin="@dimen/big_padding"
-        android:textSize="18sp" />
-
+        android:gravity="center_horizontal"
+        ></Spinner>
+    </LinearLayout>
     <Button
         android:id="@+id/button_save"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/button_save"
+        style="@style/Widget.MaterialComponents.Button"
         android:layout_margin="@dimen/big_padding"
         android:textColor="@color/buttonLabel" />
+
+</LinearLayout>
 
 </LinearLayout>
