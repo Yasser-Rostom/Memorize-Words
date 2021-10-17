@@ -1,2 +1,2 @@
-rootProject.name = "BasicNote"
+rootProject.name = "MemorizeWords"
 include ':app'

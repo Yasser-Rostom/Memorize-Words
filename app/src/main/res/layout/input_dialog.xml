@@ -6,12 +6,6 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-    <TextView
-        android:id="@+id/dialogTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Dialog Title"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <EditText
         android:id="@+id/userInputDialog"

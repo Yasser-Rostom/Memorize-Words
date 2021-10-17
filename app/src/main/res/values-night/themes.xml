@@ -2,11 +2,11 @@
     <!-- Base application theme. -->
     <style name="Theme.BasicNote" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">#34485E</item>
-        <item name="colorPrimaryVariant">#34485E</item>
+        <item name="colorPrimary">#34475F</item>
+        <item name="colorPrimaryVariant">#34475F</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">#34485E</item>
+        <item name="colorSecondary">#34475F</item>
         <item name="colorSecondaryVariant">@color/teal_700</item>
         <item name="colorOnSecondary">@color/black</item>
 

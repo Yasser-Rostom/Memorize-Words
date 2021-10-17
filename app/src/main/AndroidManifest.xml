@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.memorizewords"
+    package="com.yasser.memorizewords"
     >
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -18,30 +18,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BasicNote">
-        <activity android:name="com.example.memorizewords.About"></activity>
+        <activity android:name="com.yasser.memorizewords.About"></activity>
         <activity
-            android:name="com.example.memorizewords.Viewer"
-            android:parentActivityName="com.example.memorizewords.WordListing">
+            android:name="com.yasser.memorizewords.WordListing"
+            android:parentActivityName="com.yasser.memorizewords.CategoryListing">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.memorizewords.WordListing" />
+                android:value="com.yasser.memorizewords.CategoryListing" />
         </activity>
         <activity
-            android:name="com.example.memorizewords.WordListing"
-            android:parentActivityName="com.example.memorizewords.CategoryListing">
+            android:name="com.yasser.memorizewords.NewWordActivity"
+            android:parentActivityName="com.yasser.memorizewords.WordListing">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.memorizewords.CategoryListing" />
+                android:value="com.yasser.memorizewords.WordListing" />
         </activity>
         <activity
-            android:name="com.example.memorizewords.NewWordActivity"
-            android:parentActivityName="com.example.memorizewords.WordListing">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.memorizewords.WordListing" />
-        </activity>
-        <activity
-            android:name="com.example.memorizewords.Splash"
+            android:name="com.yasser.memorizewords.Splash"
             android:theme="@style/SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -50,7 +43,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.memorizewords.CategoryListing"
+            android:name="com.yasser.memorizewords.CategoryListing"
             android:theme="@style/Theme.BasicNote" />
     </application>
 
