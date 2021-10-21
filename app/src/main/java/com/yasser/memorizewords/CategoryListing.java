@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -23,6 +22,7 @@ public class CategoryListing extends AppCompatActivity {
 
     private long backPressedTime;
     private String categoryToInsert;
+
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
@@ -53,7 +53,7 @@ public class CategoryListing extends AppCompatActivity {
 
     private CateViewModel cateViewModel;
     RecyclerView recyclerView;
-    ViewModel viewModel;
+    ViewModel wordViewModel;
      CatAdapter adapter;
      //Category category;
     @Override
@@ -65,7 +65,7 @@ public class CategoryListing extends AppCompatActivity {
         adapter = new CatAdapter(new CatAdapter.CategoryDiff());
         cateViewModel = ViewModelProviders.of(this)
                 .get(CateViewModel.class);
-        viewModel = ViewModelProviders.
+        wordViewModel = ViewModelProviders.
                 of(this).get(ViewModel.class);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2
@@ -134,11 +134,14 @@ public class CategoryListing extends AppCompatActivity {
                 return true;
 
             case 1:
-                AlertDialog diaBox = AlertBuilderClass.
-                        AskDeleteCategory(
-                                adapter.getCategory
-                                        (item.getGroupId()),
-                        cateViewModel,this);
+                Category category = adapter.getCategory(item.getGroupId());
+                int i = wordViewModel.countWordByCat(category.getCategory());
+
+                    AlertDialog diaBox = AlertBuilderClass.
+                            AskDeleteCategory(
+                                    adapter.getCategory
+                                            (item.getGroupId()),
+                                    cateViewModel,this,i);
                 diaBox.show();
 
                 return true;

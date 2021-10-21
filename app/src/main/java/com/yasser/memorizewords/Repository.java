@@ -60,6 +60,13 @@ public class Repository {
         count = mCategoryDao.countCategory(category);
         return count;
     }
+
+    int countWordsByCat(String category)
+    {
+        int count;
+        count = mWordDao.countCategory(category);
+        return count;
+    }
     void updateByCategory(String oldCategory, String newCategory)
     {
         WordRoomDB.dbWriteExecutor.execute(() -> {

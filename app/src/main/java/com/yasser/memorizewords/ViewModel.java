@@ -30,6 +30,12 @@ public class ViewModel extends AndroidViewModel {
         return someWords;
 
     }
+    public int countWordByCat(String category)
+    {
+        int count = mRepository.countWordsByCat(category);
+        return count;
+    }
+
 
 
 

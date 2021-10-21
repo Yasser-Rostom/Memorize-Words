@@ -40,4 +40,7 @@ public interface WordDAO {
     @Query("SELECT * FROM word_Table WHERE word LIKE :search OR translation LIKE :search")
     List<Word> getSearchedNote(String search);
 
+    @Query("SELECT COUNT(*) FROM word_Table WHERE category_name = :category;")
+    int countCategory(String category);
+
 }
