@@ -2,6 +2,7 @@ package com.yasser.memorizewords;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import android.os.Bundle;
 import android.view.Menu;
@@ -47,6 +48,7 @@ public class About extends AppCompatActivity {
         inflater.inflate(R.menu.info_menu, menu);
         return super.onCreateOptionsMenu(menu);
     }
+
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {

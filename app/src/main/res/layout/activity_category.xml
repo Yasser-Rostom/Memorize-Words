@@ -15,7 +15,7 @@
         android:layout_height="0dp"
         tools:listitem="@layout/recyclerview_item"
         android:padding="@dimen/big_padding"
-
+android:layout_marginBottom="75dp"
         android:layoutAnimation="@anim/layout_anim_slide_in"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         app:layout_constraintBottom_toBottomOf="parent"
